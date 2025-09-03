@@ -2,13 +2,15 @@
 
 import { useCart } from "@/context/CartContext";
 import type { Book } from "@/lib/books";
+import Image from "next/image";
+
 
 export default function BookCard({ book }: { book: Book }) {
   const { add } = useCart();
 
   return (
     <div className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-      <img
+      <Image
         src={book.image}
         alt={book.title}
         className="w-full h-44 object-cover"

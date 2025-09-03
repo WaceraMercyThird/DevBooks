@@ -2,6 +2,8 @@
 
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function CartPage() {
   const { items, totalPrice, changeQty, remove, clear } = useCart();
@@ -22,7 +24,7 @@ export default function CartPage() {
           <div className="space-y-4">
             {items.map(({ book, qty }) => (
               <div key={book.id} className="flex gap-4 rounded-xl border bg-white p-4">
-                <img src={book.image} alt={book.title} className="w-24 h-24 object-cover rounded" />
+                <Image src={book.image} alt={book.title} className="w-24 h-24 object-cover rounded" />
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-900">{book.title}</h3>
                   <p className="text-sm text-gray-600">{book.author}</p>

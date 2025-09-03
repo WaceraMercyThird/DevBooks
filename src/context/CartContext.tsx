@@ -71,8 +71,8 @@ function useCartState() {
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const value = useCartState();
-  const memo = useMemo(() => value, [value.items, value.totalQty, value.totalPrice]);
-  return <CartContext.Provider value={memo}>{children}</CartContext.Provider>;
+const memo = useMemo(() => value, [value]);
+return <CartContext.Provider value={memo}>{children}</CartContext.Provider>;
 }
 
 export const useCart = () => {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import Navbar from "@/Components/Navbar";
@@ -14,7 +15,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-gray-100 antialiased">
         <CartProvider>
+          <Suspense fallback={<div>Loading nav...</div>}>
           <Navbar />
+        </Suspense>
+        {children}
           <main className="pt-20">{children}</main>
           <Footer />
         </CartProvider>
